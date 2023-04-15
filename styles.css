@@ -1,0 +1,58 @@
+.container{
+   display:grid;
+}
+
+.container{
+   display: grid;
+   grid-template:100px 1fr 100px / 400px 1fr;
+   grid-template-areas:"header header" "left contenido" "footer footer";
+   grid-gap: 20px;
+   height:100vh; 
+}
+
+.header{
+   grid-area: header;
+}
+
+.left{
+   grid-area: left;
+}
+
+.contenido{
+   grid-area:contenido;
+}
+
+.footer{
+   grid-area:footer;
+}
+
+.item{
+   background-color:pink;
+   padding:10px;
+   color:white;
+   border-radius:10px;
+}
+
+/* Punto de quiebre para dispositivos con un ancho máximo de 600px */
+@media only screen and (max-width: 600px) {
+   .container{
+       grid-template:60px 1fr 60px / 1fr;
+       grid-template-areas:"header" "contenido" "footer";
+   }
+}
+
+/* Punto de quiebre para dispositivos con un ancho mínimo de 600px y máximo de 992px */
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+   .container{
+       grid-template:100px 1fr 100px / 1fr;
+       grid-template-areas:"header" "contenido" "footer";
+   }
+}
+
+/* Punto de quiebre para dispositivos con un ancho mínimo de 992px */
+@media only screen and (min-width: 992px) {
+   .container{
+       grid-template:100px 1fr 100px / 400px 1fr;
+       grid-template-areas:"header header" "left contenido" "footer footer";
+   }
+}
