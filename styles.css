@@ -1,52 +1,60 @@
 .container {
-    display: grid;
+  display: grid;
+  grid-template: 100px 1fr 100px / 1fr;
+  grid-template-areas: "header" "contenido" "footer";
+  grid-gap: 20px;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+
+.contenido {
+  grid-area: contenido;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.imagen {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  border-radius: 10px;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.item {
+  background-color: pink;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Punto de quiebre para dispositivos con un ancho máximo de 600px */
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template: 60px 1fr 60px / 1fr;
+    grid-template-areas: "header" "contenido" "footer";
+  }
+}
+
+/* Punto de quiebre para dispositivos con un ancho mínimo de 600px y máximo de 992px */
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .container {
     grid-template: 100px 1fr 100px / 1fr;
     grid-template-areas: "header" "contenido" "footer";
-    grid-gap: 20px;
-    height: 100vh;
   }
-  
-  .header {
-    grid-area: header;
+}
+
+/* Punto de quiebre para dispositivos con un ancho mínimo de 992px */
+@media only screen and (min-width: 992px) {
+  .container {
+    grid-template: 100px 1fr 100px / 400px 1fr;
+    grid-template-areas: "header header" "contenido contenido" "footer footer";
   }
-  
-  .contenido {
-    grid-area: contenido;
-  }
-  
-  .footer {
-    grid-area: footer;
-  }
-  
-  .item {
-    background-color: pink;
-    padding: 10px;
-    color: white;
-    border-radius: 10px;
-  }
-  
-  /* Punto de quiebre para dispositivos con un ancho máximo de 600px */
-  @media only screen and (max-width: 600px) {
-    .container {
-      grid-template: 60px 1fr 60px / 1fr;
-      grid-template-areas: "header" "contenido" "footer";
-    }
-  }
-  
-  /* Punto de quiebre para dispositivos con un ancho mínimo de 600px y máximo de 992px */
-  @media only screen and (min-width: 600px) and (max-width: 992px) {
-    .container {
-      grid-template: 100px 1fr 100px / 1fr;
-      grid-template-areas: "header" "contenido" "footer";
-    }
-  }
-  
-  /* Punto de quiebre para dispositivos con un ancho mínimo de 992px */
-  @media only screen and (min-width: 992px) {
-    .container {
-      grid-template: 100px 1fr 100px / 400px 1fr;
-      grid-template-areas: "header header" "contenido contenido" "footer footer";
-    }
-  }
-  
- 
+}
